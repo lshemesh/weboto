@@ -6,8 +6,12 @@ class UrlShortenerPlugin
   listen_to :channel
 
   def shorten(url)
-    url = open("http://is.gd/create.php?format=simple&#{url}").read
-    "Error" == url ? nil : url
+    if url.length > 20
+      url = open("http://is.gd/create.php?format=simple&#{url}").read
+      "Error" == url ? nil : url
+    else
+      url
+    end
   rescue OpenURI::HTTPError => e
     Rails.logger.info("Error shortening URL: #{url} because #{e}")
   end
