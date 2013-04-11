@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe MemoryStore do
+  let(:user) { double('irc user', :send => true) }
   let(:term) { "Panda" }
-  let(:m) { double("message") }
+  let(:m) { double("message", :user => user) }
   let(:memory_store) { MemoryStore.new(m, term) }
 
   describe '#memory_entry' do
@@ -16,7 +17,7 @@ describe MemoryStore do
       end
     end
 
-    context 'given no memory entry of that name' do
+    context 'given a memory entry of that name' do
       it 'returns memory entry of that name' do
         MemoryEntry.create!(:name => term)
         query = MemoryEntry.where(:name => term)
@@ -25,6 +26,33 @@ describe MemoryStore do
           5.times { memory_store.memory_entry }
         }.should change(query, :count).by(0)
       end
+    end
+  end
+
+  describe '#add_definition' do
+    let(:definition) { "Definition text!" }
+
+    context 'given no memory definition for that name and definition' do
+      it 'creates the definition' do
+        lambda {
+          memory_store.add_definition(definition)
+        }.should change(MemoryDefinition.where(:name => definition), :count).by(1)
+      end
+    end
+
+    context 'given a memory definition for that term' do
+      it 'returns the definition' do
+        FactoryGirl.create(:memory_definition, :name => definition, :memory_entry => memory_store.memory_entry)
+
+        lambda {
+          memory_store.add_definition(definition)
+        }.should change(MemoryDefinition.where(:name => definition), :count).by(0)
+      end
+    end
+
+    it 'signals the user that the create happened' do
+      user.should_receive(:send).with("Ok")
+      memory_store.add_definition(definition)
     end
   end
 end
