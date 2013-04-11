@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :memory_definition do
-    name "MyText"
-    memory_entry_id 1
+    sequence(:name) {|i| "Memory definition #{i}" }
+    memory_entry
   end
 end
