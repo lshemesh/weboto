@@ -10,6 +10,7 @@ gem 'awesome_print'
 gem 'cinch'
 gem 'pg'
 gem 'puma'
+gem 'strong_parameters'
 
 group :development do
   gem 'annotate'
@@ -22,6 +23,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry'
+  gem 'shoulda-matchers'
 end
 
 # Gems used only for assets and not required
