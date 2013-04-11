@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe MemoryStore do
-  let(:user) { double('irc user', :send => true) }
-  let(:term) { "Panda" }
+  let(:definition) { "Definition text!" }
   let(:m) { double("message", :user => user) }
   let(:memory_store) { MemoryStore.new(m, term) }
+  let(:term) { "Panda" }
+  let(:user) { double('irc user', :send => true) }
 
   describe '#memory_entry' do
     context 'given no memory entry of that name' do
@@ -30,8 +31,6 @@ describe MemoryStore do
   end
 
   describe '#add_definition' do
-    let(:definition) { "Definition text!" }
-
     context 'given no memory definition for that name and definition' do
       it 'creates the definition' do
         lambda {
@@ -49,10 +48,20 @@ describe MemoryStore do
         }.should change(MemoryDefinition.where(:name => definition), :count).by(0)
       end
     end
+  end
 
-    it 'signals the user that the create happened' do
-      user.should_receive(:send).with("Ok")
-      memory_store.add_definition(definition)
+  describe '#definitions' do
+    context 'given definitions' do
+      it 'returns them' do
+        memory_store.add_definition(definition)
+        memory_store.definitions.length.should == 1
+      end
+    end
+
+    context 'given no definitions' do
+      it 'returns an empty array' do
+        memory_store.definitions.should == []
+      end
     end
   end
 end
