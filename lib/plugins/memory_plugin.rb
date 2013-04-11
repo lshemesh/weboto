@@ -3,6 +3,7 @@ class MemoryPlugin
 
   match /remember (\S+) (.+)/, method: :remember
   match /recall (.+)/, method: :recall
+  match /forget (.+)/, method: :forget
 
   def remember(m, term, definition)
     store = MemoryStore.new(term)
@@ -24,6 +25,12 @@ class MemoryPlugin
     else
       respond_to_user(m, "I don't think I know what #{term} means...")
     end
+  end
+
+  def forget(m, term)
+    store = MemoryStore.new(term)
+    store.forget
+    respond_to_user(m, "Forgetting Entry")
   end
 
   def respond_to_user(m, msg)
