@@ -30,7 +30,7 @@ class MemoryPlugin
   def forget(m, term)
     store = MemoryStore.new(term)
     store.forget
-    respond_to_user(m, "Forgetting Entry")
+    respond_to_user(m, "Forgetting #{term}...")
   end
 
   def respond_to_user(m, msg)
