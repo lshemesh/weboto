@@ -138,6 +138,8 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -208,6 +210,7 @@ DEPENDENCIES
   puma
   rails (= 3.2.13)
   rails-erd
+  rest-client
   rspec-rails
   sass-rails (~> 3.2.3)
   shoulda-matchers

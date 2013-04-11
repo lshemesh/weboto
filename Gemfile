@@ -14,6 +14,7 @@ gem 'httparty'
 gem 'pg'
 gem 'puma'
 gem 'strong_parameters'
+gem 'rest-client', :require => 'rest_client'
 
 group :development do
   gem 'annotate'
