@@ -10,7 +10,7 @@ class GithubCommitPlugin
 
     repo_path = 'WeWork/weboto'
 
-    GithubCommitFetcher.new(repo_path).commits(INTERVAL).each do |commit|
+    GithubCommitFetcher.new(repo_path).commits(INTERVAL.seconds.ago).each do |commit|
       channel.send commit.formatted_message
     end
   end
