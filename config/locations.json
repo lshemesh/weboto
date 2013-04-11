@@ -1,54 +1,63 @@
 [
   {
-    "Bryant Park": {
+    "name": "Bryant Park",
+    "coordinates": {
       "lat": 40.7532,
       "lon": -73.9841
     }
   },
   {
-    "Golden Gate": {
+    "name": "Golden Gate",
+    "coordinates": {
       "lat": 37.7826,
       "lon": -122.4107
     }
   },
   {
-    "LA - Hollywood": {
+    "name": "LA - Hollywood",
+    "coordinates": {
       "lat": 34.1015,
       "lon": -118.3444
     }
   },
   {
-    "Madison": {
+    "name": "Madison",
+    "coordinates": {
       "lat": 40.7506,
       "lon": 73.9809
     }
   },
   {
-    "Meatpacking": {
+    "name": "Meatpacking",
+    "coordinates": {
       "lat": 40.7395,
       "lon": 74.0061
     }
   },
   {
-    "Midtown": {
+    "name": "Midtown",
+    "coordinates": {
       "lat": 40.7483,
       "lon": 73.9847
     }
   },
   {
-    "SoMa": {
+    "name": "SoMa",
+    "coordinates": {
       "lat": 37.7873,
       "lon": 122.399
     }
   },
   {
-    "Soho": {
+    "name": "Soho",
+    "coordinates": {
       "lat": 40.7199,
       "lon": 73.9988
     }
   },
   {
-    "Soho West": {
+    "name": "Soho West",
+    "coordinates": {
       "lat": 40.727,
       "lon": 74.0055
     }

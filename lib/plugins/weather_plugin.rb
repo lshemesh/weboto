@@ -6,12 +6,12 @@ class WeatherPlugin
   def execute(m)
     Rails.logger.info("Weather plugin firing")
 
-    WEWORK_LOCATIONS.each do |location, pair|
-      Rails.logger.info("Fetching weather for #{location}")
+    WEWORK_LOCATIONS.each do |location_hash|
+      Rails.logger.info("Fetching weather for #{location_hash['name']}")
 
-      report = WeatherFetcher.new(location: location,
-                                  lat: pair['lat'],
-                                  lon: pair['lon']).weather_reports.first
+      report = WeatherFetcher.new(location: location_hash['name'],
+                                  lat: location_hash['coordinates']['lat'],
+                                  lon: location_hash['coordinates']['lon']).weather_reports.first
 
       m.reply report.formatted_report
     end
