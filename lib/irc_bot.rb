@@ -8,13 +8,6 @@ class IrcBot
       configure do |c|
         @autovoice   = true
         c.channels   = ["#wework"]
-
-        if Rails.env.development?
-          c.nick          = "weboto-dev"
-        else
-          c.nick          = "weboto"
-        end
-
         c.plugins.plugins = [
                              GithubCommitPlugin,
                              HelpPlugin,
@@ -26,7 +19,13 @@ class IrcBot
                              WeatherPlugin
                             ]
 
+        c.realname        = "Mr. Weboto, the WeWork IRC bot: https://github.com/WeWork/weboto"
         c.server          = "irc.freenode.org"
+        if Rails.env.development?
+          c.nick          = "weboto-dev"
+        else
+          c.nick          = "weboto"
+        end
       end
     end
   end
