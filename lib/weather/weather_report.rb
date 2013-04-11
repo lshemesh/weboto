@@ -33,4 +33,8 @@ class WeatherReport
      "#{humidity}% humidity"
     ].join(', ')
   end
+
+  def inspect
+    "#<WeatherReport:#{object_id} [#{formatted_report}] >"
+  end
 end
