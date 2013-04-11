@@ -3,7 +3,7 @@ require 'spec_helper'
 describe MemoryStore do
   let(:definition) { "Definition text!" }
   let(:memory_store) { MemoryStore.new(term) }
-  let(:term) { "Panda" }
+  let(:term) { "panda" }
 
   describe '#memory_entry' do
     context 'given no memory entry of that name' do
