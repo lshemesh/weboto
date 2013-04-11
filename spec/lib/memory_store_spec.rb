@@ -62,4 +62,15 @@ describe MemoryStore do
       end
     end
   end
+
+
+  describe "#forget" do
+    context "when passed a term that exists" do
+      it "removes the term from memory" do
+        MemoryEntry.create!(:name => term)
+        memory_store.forget
+        memory_store.definitions.should == []
+      end
+    end
+  end
 end

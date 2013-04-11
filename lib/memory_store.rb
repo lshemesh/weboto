@@ -16,4 +16,8 @@ class MemoryStore
   def definitions
     memory_entry.memory_definitions.order(:created_at)
   end
+
+  def forget
+    memory_entry.destroy
+  end
 end
