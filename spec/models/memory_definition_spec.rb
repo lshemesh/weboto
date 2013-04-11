@@ -5,6 +5,7 @@ describe MemoryDefinition do
 
   it { should validate_presence_of(:memory_entry) }
   it { should validate_presence_of(:name) }
+  it { should validate_uniqueness_of(:name).scoped_to(:memory_entry_id) }
   it { should belong_to(:memory_entry) }
 
   describe '#valid?' do
