@@ -12,7 +12,7 @@ class GithubCommitFetcher
     ['', 'repos', repo_path, 'commits'].join('/')
   end
 
-  def commits(since = 5.minutes.ago)
+  def commits(since = 30.seconds.ago)
     response = request_commits(since)
 
     if 200 == response.code
@@ -23,8 +23,8 @@ class GithubCommitFetcher
     end
   end
 
-  def request_commits(since = 5.minutes.ago)
+  def request_commits(since = 30.seconds.ago)
     Rails.logger.info("Requesting Github commits for repo #{repo_path} since #{since}")
-    self.class.get(url, { since: since.xmlschema })
+    self.class.get(url, {query: { since: since.xmlschema }})
   end
 end
