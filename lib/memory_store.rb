@@ -2,7 +2,7 @@ class MemoryStore
   attr_reader :term
 
   def initialize(term)
-    @term = term
+    @term = term.downcase
   end
 
   def memory_entry
