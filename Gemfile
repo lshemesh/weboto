@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'active_model_serializers', :git => "git://github.com/rails-api/active_model_serializers.git"
 gem 'awesome_print'
 gem 'cinch'
+gem 'httparty'
 gem 'pg'
 gem 'puma'
 gem 'strong_parameters'
