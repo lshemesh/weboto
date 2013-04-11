@@ -1,8 +1,7 @@
 class MemoryStore
-  attr_reader :m, :term
+  attr_reader :term
 
-  def initialize(m, term)
-    @m    = m
+  def initialize(term)
     @term = term
   end
 

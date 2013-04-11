@@ -2,10 +2,8 @@ require 'spec_helper'
 
 describe MemoryStore do
   let(:definition) { "Definition text!" }
-  let(:m) { double("message", :user => user) }
-  let(:memory_store) { MemoryStore.new(m, term) }
+  let(:memory_store) { MemoryStore.new(term) }
   let(:term) { "Panda" }
-  let(:user) { double('irc user', :send => true) }
 
   describe '#memory_entry' do
     context 'given no memory entry of that name' do
