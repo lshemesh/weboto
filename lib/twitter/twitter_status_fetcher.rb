@@ -21,8 +21,8 @@ class TwitterStatusFetcher
 
   def request_statuses(count = 1)
     Rails.logger.info("Requesting Twitter statuses for user #{handle}")
-    self.class.get('statuses/user_timeline.json', { :query => {
-                       :screen_name => 'WeWork',
+    self.class.get('/statuses/user_timeline.json', { :query => {
+                       :screen_name => handle,
                        :count => count
                      }
                    })

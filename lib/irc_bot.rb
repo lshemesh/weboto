@@ -15,7 +15,17 @@ class IrcBot
           c.nick          = "weboto"
         end
 
-        c.plugins.plugins = [MemoryPlugin, UptimePlugin, GithubCommitPlugin, UrlShortenerPlugin, HelpPlugin, StatsPlugin, WeatherPlugin]
+        c.plugins.plugins = [
+                             GithubCommitPlugin,
+                             HelpPlugin,
+                             MemoryPlugin,
+                             StatsPlugin,
+                             TwitterPlugin,
+                             UptimePlugin,
+                             UrlShortenerPlugin,
+                             WeatherPlugin
+                            ]
+
         c.server          = "irc.freenode.org"
       end
     end
