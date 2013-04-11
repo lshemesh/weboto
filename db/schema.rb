@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411145330) do
+ActiveRecord::Schema.define(:version => 20130411145710) do
 
   create_table "memory_definitions", :force => true do |t|
     t.text     "name"
@@ -25,5 +25,7 @@ ActiveRecord::Schema.define(:version => 20130411145330) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "memory_entries", ["name"], :name => "index_memory_entries_on_name"
 
 end
