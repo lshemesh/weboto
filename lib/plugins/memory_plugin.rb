@@ -4,6 +4,7 @@ class MemoryPlugin
   match /remember (\S+) (.+)/, method: :remember
   match /recall (.+)/, method: :recall
   match /forget (.+)/, method: :forget
+  match /\?(.+)/, method: :recall, use_prefix: false
 
   def remember(m, term, definition)
     store = MemoryStore.new(term)
