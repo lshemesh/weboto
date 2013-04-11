@@ -10,7 +10,7 @@ class IrcBot
 
         c.channels        = ["#wework"]
         c.nick            = "weboto"
-        c.plugins.plugins = [MemoryPlugin, UptimePlugin, GithubCommitPlugin, UrlShortenerPlugin, HelpPlugin, StatsPlugin]
+        c.plugins.plugins = [MemoryPlugin, UptimePlugin, GithubCommitPlugin, UrlShortenerPlugin, HelpPlugin, StatsPlugin, WeatherPlugin]
         c.server          = "irc.freenode.org"
       end
     end
