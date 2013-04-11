@@ -63,7 +63,6 @@ describe MemoryStore do
     end
   end
 
-
   describe "#forget" do
     context "when passed a term that exists" do
       it "removes the term from memory" do

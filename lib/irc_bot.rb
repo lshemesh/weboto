@@ -8,7 +8,7 @@ class IrcBot
       configure do |c|
         @autovoice   = true
 
-        c.channels        = ["#wework"]
+        c.channels        = ["#testing_bots22"]
         c.nick            = "weboto"
         c.plugins.plugins = [MemoryPlugin]
         c.server          = "irc.freenode.org"
