@@ -5,9 +5,24 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'active_model_serializers', :git => "git://github.com/rails-api/active_model_serializers.git"
+gem 'awesome_print'
 gem 'cinch'
 gem 'pg'
 gem 'puma'
+
+group :development do
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'brakeman'
+  gem 'rails-erd'
+end
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'pry'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

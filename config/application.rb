@@ -64,5 +64,17 @@ module Weboto
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.generators do |g|
+      g.fixture_replacement :factory_girl
+      g.test_framework(:rspec,
+                       :view_specs    => false,
+                       :request_specs => false,
+                       :routing_specs => false)
+
+      g.view_specs false
+      g.helper_specs false
+      g.orm :active_record
+    end
   end
 end
