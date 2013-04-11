@@ -9,7 +9,13 @@ class IrcBot
         @autovoice   = true
 
         c.channels        = ["#wework"]
-        c.nick            = "weboto"
+
+        if Rails.env.development?
+          c.nick            = "weboto-dev"
+        else
+          c.nick            = "weboto"
+        end
+
         c.plugins.plugins = [MemoryPlugin, UptimePlugin, GithubCommitPlugin, UrlShortenerPlugin, HelpPlugin, StatsPlugin, WeatherPlugin]
         c.server          = "irc.freenode.org"
       end
