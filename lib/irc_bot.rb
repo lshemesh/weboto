@@ -7,13 +7,12 @@ class IrcBot
     @bot ||= Cinch::Bot.new do |b|
       configure do |c|
         @autovoice   = true
-
-        c.channels        = ["#wework"]
+        c.channels   = ["#wework"]
 
         if Rails.env.development?
-          c.nick            = "weboto-dev"
+          c.nick          = "weboto-dev"
         else
-          c.nick            = "weboto"
+          c.nick          = "weboto"
         end
 
         c.plugins.plugins = [MemoryPlugin, UptimePlugin, GithubCommitPlugin, UrlShortenerPlugin, HelpPlugin, StatsPlugin, WeatherPlugin]
