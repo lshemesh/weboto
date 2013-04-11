@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411143827) do
+ActiveRecord::Schema.define(:version => 20130411145330) do
+
+  create_table "memory_definitions", :force => true do |t|
+    t.text     "name"
+    t.integer  "memory_entry_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "memory_entries", :force => true do |t|
     t.string   "name"
