@@ -6,10 +6,12 @@ class IrcBot
   def bot
     @bot ||= Cinch::Bot.new do |b|
       configure do |c|
-        c.nick       = "weboto"
-        c.server     = "irc.freenode.org"
-        c.channels   = ["#wework"]
         @autovoice   = true
+
+        c.channels        = ["#wework"]
+        c.nick            = "weboto"
+        c.plugins.plugins = [MemoryPlugin]
+        c.server          = "irc.freenode.org"
       end
     end
   end

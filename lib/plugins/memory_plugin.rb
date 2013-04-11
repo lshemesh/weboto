@@ -5,16 +5,16 @@ class MemoryPlugin
   match /recall (.+)/, method: :recall
 
   def remember(m, term, definition)
-    store = MemoryStore.new(m, term)
+    store = MemoryStore.new(term)
     if store.add_definition(definition)
-      m.user.send "Ok"
+      respond_to_user(m, "Ok")
     else
-      m.user.send "Trouble remembering your definition..."
+      respond_to_user(m, "Trouble remembering your definition...")
     end
   end
 
   def recall(m, term)
-    store = MemoryStore.new(m, term)
+    store = MemoryStore.new(term)
 
     if store.definitions.present?
       m.channel.send "I think #{term} means: "
@@ -22,7 +22,11 @@ class MemoryPlugin
         m.channel.send "[#{index}] #{definition}"
       end
     else
-      m.user.send "I don't think I know what #{term} means..."
+      respond_to_user(m, "I don't think I know what #{term} means...")
     end
+  end
+
+  def respond_to_user(m, msg)
+    m.channel.send [m.user.nick, msg].join(': ')
   end
 end
