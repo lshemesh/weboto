@@ -15,4 +15,12 @@ class IrcBot
       end
     end
   end
+
+  def inspect
+    [
+     "#<IrcBot:#{object_id} ",
+     "bot:#{bot} ",
+     ">"
+    ].join('')
+  end
 end

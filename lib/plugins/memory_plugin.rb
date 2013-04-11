@@ -1,7 +1,7 @@
 class MemoryPlugin
   include Cinch::Plugin
 
-  match /remember (.+) (.+)/, method: :remember
+  match /remember (\S+) (.+)/, method: :remember
   match /recall (.+)/, method: :recall
 
   def remember(m, term, definition)
@@ -19,7 +19,7 @@ class MemoryPlugin
     if store.definitions.present?
       m.channel.send "I think #{term} means: "
       store.definitions.each_with_index do |definition, index|
-        m.channel.send "[#{index}] #{definition}"
+        m.channel.send "[#{index}] #{definition.name}"
       end
     else
       respond_to_user(m, "I don't think I know what #{term} means...")
