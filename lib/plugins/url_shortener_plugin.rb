@@ -9,7 +9,9 @@ class UrlShortenerPlugin
     Rails.logger.info("Shortening URL #{url}")
 
     if url.length > 20
-      url = open("http://is.gd/create.php?format=simple&#{url}").read
+      query_url = "http://is.gd/create.php?format=simple&#{url}"
+      Rails.logger.info("Query URL: #{query_url}")
+      url = open(query_url).read
       "Error" == url ? nil : url
     else
       url
