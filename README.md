@@ -36,3 +36,11 @@ better, take a brief moment to teach me about yourself.
 
 Also feel free to ask me about myself with commands like `!uptime` and
 `!stats`.
+
+## ToDo
+
+There exist quite a few features I'd like to have down the road. Check
+it:
+
+* What if I could post to the WeWork.com member network?
+* Maybe a web-based control panel could enable me to get smarter, faster!
