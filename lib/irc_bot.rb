@@ -1,5 +1,9 @@
 class IrcBot
   def start
+    bot.on :join do |m|
+      m.channel.send "Domo arigato, Mr. Weboto!"
+    end
+
     bot.start
   end
 
