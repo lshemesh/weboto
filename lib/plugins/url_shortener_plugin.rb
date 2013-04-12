@@ -6,6 +6,8 @@ class UrlShortenerPlugin
   listen_to :channel
 
   def shorten(url)
+    Rails.logger.info("Shortening URL #{url}")
+
     if url.length > 20
       url = open("http://is.gd/create.php?format=simple&#{url}").read
       "Error" == url ? nil : url
@@ -19,7 +21,9 @@ class UrlShortenerPlugin
   def listen(m)
     short_urls = URI.extract(m.message, ['http', 'https']).map {|url| shorten(url) }.compact
 
-    short_urls.present? && m.reply(short_urls.join(', '))
+    if short_urls.present?
+      Rails.logger.info("URLs detected and shortened!")
+      m.reply(short_urls.join(', '))
+    end
   end
-
 end
