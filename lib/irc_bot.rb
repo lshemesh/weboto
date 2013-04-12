@@ -10,6 +10,7 @@ class IrcBot
         c.channels   = ["#wework"]
         c.plugins.plugins = [
                              GithubCommitPlugin,
+                             HelloPlugin,
                              HelpPlugin,
                              MemoryPlugin,
                              StatsPlugin,
