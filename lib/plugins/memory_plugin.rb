@@ -1,10 +1,12 @@
 class MemoryPlugin
   include Cinch::Plugin
 
+  QUESTION_MARK_REGEX = /\?\b(\w+)\b/
+
   match /remember (\S+) (.+)/, method: :remember
   match /recall (.+)/, method: :recall
   match /forget (.+)/, method: :forget
-  match /\?(.+)/, method: :recall, use_prefix: false
+  match QUESTION_MARK_REGEX, method: :recall, use_prefix: false
 
   def remember(m, term, definition)
     store = MemoryStore.new(term)
